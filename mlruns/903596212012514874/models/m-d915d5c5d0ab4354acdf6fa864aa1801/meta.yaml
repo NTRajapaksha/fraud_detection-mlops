@@ -1,0 +1,10 @@
+artifact_location: file:///workspaces/fraud_detection-mlops/mlruns/903596212012514874/models/m-d915d5c5d0ab4354acdf6fa864aa1801/artifacts
+creation_timestamp: 1764840787568
+experiment_id: '903596212012514874'
+last_updated_timestamp: 1764840792240
+model_id: m-d915d5c5d0ab4354acdf6fa864aa1801
+model_type: null
+name: fraud_detection_pipeline
+source_run_id: 925f1ecc5a8e4ca8991064d37de5fc1f
+status: 2
+status_message: null

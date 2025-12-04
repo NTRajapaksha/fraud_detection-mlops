@@ -1,0 +1,8 @@
+aliases:
+  production: '1'
+creation_timestamp: 1764840863084
+deployment_job_id: null
+deployment_job_state: null
+description: ''
+last_updated_timestamp: 1764840895220
+name: fraud-detection-v2

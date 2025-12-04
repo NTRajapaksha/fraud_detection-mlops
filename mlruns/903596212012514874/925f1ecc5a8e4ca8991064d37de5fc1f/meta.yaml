@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/fraud_detection-mlops/mlruns/903596212012514874/925f1ecc5a8e4ca8991064d37de5fc1f/artifacts
+end_time: 1764840792245
+entry_point_name: ''
+experiment_id: '903596212012514874'
+lifecycle_stage: active
+run_id: 925f1ecc5a8e4ca8991064d37de5fc1f
+run_name: rare-cat-134
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764840778956
+status: 3
+tags: []
+user_id: codespace

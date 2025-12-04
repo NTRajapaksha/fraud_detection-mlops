@@ -19,7 +19,7 @@ async def lifespan(app: FastAPI):
     model_uri = os.getenv("MODEL_URI", "models:/fraud-detection-v2@production")
     try:
         logger.info(f"Loading model from {model_uri}")
-        ml_models["model"] = mlflow.pyfunc.load_model(model_uri)
+        ml_models["model"] = mlflow.sklearn.load_model(model_uri)
     except Exception as e:
         logger.error(f"Failed to load model: {e}")
         ml_models["model"] = None
