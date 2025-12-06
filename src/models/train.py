@@ -1,10 +1,9 @@
 import mlflow
 import mlflow.sklearn
 import pandas as pd
-import numpy as np
 from xgboost import XGBClassifier
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import classification_report, roc_auc_score, f1_score
+from sklearn.metrics import roc_auc_score, f1_score
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 import logging
