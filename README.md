@@ -16,6 +16,7 @@ A production-ready machine learning system for real-time credit card fraud detec
 - [Getting Started](#-getting-started)
 - [Usage](#-usage)
 - [Model Performance](#-model-performance)
+- [Monitoring & Drift Detection](#-monitoring--drift-detection)
 - [API Documentation](#-api-documentation)
 - [CI/CD Pipeline](#-cicd-pipeline)
 - [Docker Deployment](#-docker-deployment)
@@ -271,6 +272,23 @@ Access Swagger UI at: `http://localhost:8000/docs`
 | ROC-AUC | 0.9737645603401743 |
 | F1-Score (Fraud) | 0.5044510385756676 |
 
+## 📊 Monitoring & Drift Detection
+
+The system includes automated monitoring to ensure model performance:
+
+- **Prediction Logging:** All predictions logged for analysis
+- **Drift Detection:** Evidently AI monitors feature and target drift
+- **Performance Tracking:** Key metrics tracked over time
+- **Alert System:** Automated alerts for performance degradation
+
+Simulate Production Traffic Generates synthetic transaction data. Some data simulates "normal" behavior, and some simulates "drifted" behavior (high values/anomalies)
+```bash
+python src/data/simulate_traffic.py
+```
+Detect Data Drift Compares the "Reference" data with "Current" data. Logs a visual HTML report to MLflow.
+```bash
+python src/models/monitor.py
+```
 
 ## 🔌 API Documentation
 
@@ -338,7 +356,6 @@ POST /predict
 2. Retrain model
 3. Evaluate performance
 4. Update model registry if improved
-
 
 ## 🐳 Docker Deployment
 
