@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/fraud_detection-mlops/mlruns/903596212012514874/f6dd55e20485427f9d7ade5b1f12a82a/artifacts
+end_time: 1765097887232
+entry_point_name: ''
+experiment_id: '903596212012514874'
+lifecycle_stage: active
+run_id: f6dd55e20485427f9d7ade5b1f12a82a
+run_name: stately-stag-708
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765097878712
+status: 3
+tags: []
+user_id: codespace

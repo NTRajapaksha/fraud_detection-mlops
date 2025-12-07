@@ -31,7 +31,7 @@ This project demonstrates a complete MLOps pipeline for fraud detection, going b
 ✅ RESTful API for real-time predictions  
 ✅ CI/CD pipelines with GitHub Actions  
 ✅ Automated testing and code quality checks  
-✅ Model monitoring
+✅ Model monitoring and Drift detection
 ✅ Scheduled retraining workflows  
 ✅ Docker containerization  
 

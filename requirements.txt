@@ -1,5 +1,5 @@
 pandas
-numpy
+numpy<2.0
 scikit-learn
 xgboost
 imbalanced-learn
@@ -9,7 +9,7 @@ uvicorn[standard]
 pydantic
 pyarrow
 dvc
-evidently
+evidently>=0.4.0
 pytest
 ruff
 kaggle

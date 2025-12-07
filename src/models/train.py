@@ -19,6 +19,14 @@ def train_model(data_dir: str):
     X_test = pd.read_parquet(f"{data_dir}/X_test.parquet")
     y_test = pd.read_parquet(f"{data_dir}/y_test.parquet").values.ravel()
 
+    # Save Reference Data (used for Drift Detection later)
+    print("Saving reference data for drift monitoring...")
+    # Save X_test and y_test combined so we can monitor features + target
+    reference_df = X_test.copy()
+    reference_df['target'] = y_test
+    reference_df.to_csv("data/reference_data.csv", index=False)
+    print("Reference data saved to data/reference_data.csv")
+
     with mlflow.start_run():
         # Define Pipeline: Scale -> SMOTE -> Model
         # SMOTE only activates during fit(), not predict()

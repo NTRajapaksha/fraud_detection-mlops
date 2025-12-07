@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/683865180159838807/c5ac886857354ae88d826eda823bd129/artifacts
+end_time: 1765097950097
+entry_point_name: ''
+experiment_id: '683865180159838807'
+lifecycle_stage: active
+run_id: c5ac886857354ae88d826eda823bd129
+run_name: Weekly_Drift_Check
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765097940790
+status: 3
+tags: []
+user_id: codespace

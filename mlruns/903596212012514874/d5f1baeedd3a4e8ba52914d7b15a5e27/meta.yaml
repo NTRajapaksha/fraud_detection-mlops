@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/fraud_detection-mlops/mlruns/903596212012514874/d5f1baeedd3a4e8ba52914d7b15a5e27/artifacts
+end_time: 1765096984704
+entry_point_name: ''
+experiment_id: '903596212012514874'
+lifecycle_stage: active
+run_id: d5f1baeedd3a4e8ba52914d7b15a5e27
+run_name: burly-fawn-385
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1765096974919
+status: 3
+tags: []
+user_id: codespace
