@@ -41,7 +41,7 @@ def run_monitoring():
         mlflow.log_artifact(report_path)
         
         print(f"✅ Monitoring Complete. Drift Detected: {dataset_drift}")
-        print(f"📄 Report saved to MLflow artifacts.")
+        print("📄 Report saved to MLflow artifacts.")
         
         # Cleanup local file
         if os.path.exists(report_path):
