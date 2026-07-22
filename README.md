@@ -380,6 +380,34 @@ docker run \
 curl http://localhost:8000/health
 ```
 
+## 🔍 Codebase Walkthrough: What Happens in Each File
+
+### 1. Data Processing & Modeling
+**`src/data/preprocessing.py`**
+- **Purpose:** Prepares the raw data for machine learning.
+- **What it does:** It loads the massive CSV file, performs a stratified split (ensuring the rare 0.17% fraud cases are distributed evenly between train and test sets), and saves the outputs in `.parquet` format.
+
+**`src/models/train.py`**
+- **Purpose:** The core model training script.
+- **What it does:** It pulls the Parquet files and initializes an MLflow experiment. It creates a robust pipeline: `StandardScaler -> SMOTE -> XGBoost`. After training, it evaluates the model (ROC-AUC and F1 scores), logs these metrics to MLflow, and registers the final pipeline artifact. It also saves the `X_test` data as `reference_data.csv` for future drift monitoring.
+
+### 2. Model Monitoring
+**`src/models/monitor.py`**
+- **Purpose:** Automatically detects if the live data is shifting away from what the model learned.
+- **What it does:** It loads the `reference_data.csv` (from training) and a `current_data.csv` (representing recent live traffic). It runs an Evidently AI `DataDriftPreset` report, which runs statistical tests on every feature column. It logs the percentage of drifted columns to MLflow and saves a rich HTML report containing visual charts of the drift.
+
+### 3. Real-Time Serving
+**`src/api/main.py`**
+- **Purpose:** The customer-facing (or backend-facing) application that serves the AI predictions.
+- **What it does:** A FastAPI application. During startup, it reaches out to the MLflow model registry and loads the production version of the fraud model into RAM. It exposes a `POST /predict` endpoint that accepts 30 transaction features. It instantly pushes these features through the loaded pipeline, determines if the transaction is fraudulent, and returns the AI's confidence percentage.
+
+### 4. DevOps & Automation
+**`.github/workflows/ci.yml`**
+- **Purpose:** The automated guardrails for the codebase.
+- **What it does:** Every time a developer pushes code to the repository, GitHub automatically spins up a server, installs Python, runs `ruff` to ensure the code is styled correctly (linting), and runs `pytest` to ensure no changes broke the underlying logic of the application.
+
+---
+
 ## 🔮 Future Improvements
 
 - [ ] Add authentication/API keys for security
